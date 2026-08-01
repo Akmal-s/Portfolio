@@ -1,286 +1,459 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Akmal | Data Analyst Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Akmal S | Data Analyst</title>
+<meta name="description" content="Akmal S, Data Analyst skilled in SQL, Python, Power BI, Tableau and Excel. Turning raw data into decisions." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+<link rel="stylesheet" href="style.css" />
+<script>
+  /* Hard refresh always lands on the home/landing section */
+  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  (function () {
+    try {
+      var navEntries = performance.getEntriesByType('navigation');
+      var isReload = navEntries.length
+        ? navEntries[0].type === 'reload'
+        : (performance.navigation && performance.navigation.type === 1);
+      if (isReload && (window.location.hash || window.scrollY !== 0)) {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+    } catch (e) {}
+  })();
+</script>
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-            <div class="logo" data-aos="zoom-in" data-aos-duration="1000">
-                <span>Akmal.s</span>
-            </div>
-            <div class="links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#certifications">Certifications</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
-        </div>
-    </nav>
 
-    <section id="home">
-        <div class="main-container">
-            <div class="image" data-aos="zoom-in-right" data-aos-duration="2000">
-                <img src="main.png" alt="Akmal Data Analyst Image" />
-            </div>
-            <div class="content">
-                <h1 data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
-                    Hey, I'm <span style="color: #6b3e26;">Akmal.s</span>
-                </h1>
-                <h2 data-aos="fade-right" data-aos-duration="1000" data-aos-delay="600">
-                   <span style="color: #6b3e26;">Data Analyst | SQL Expert | Skilled in Power BI, Excel, SQL & Tableau </span> 
-                </h2>
-                <p data-aos="flip-up" data-aos-duration="1000" data-aos-delay="900">
-                    <span class="welcome-text">Welcome</span>
-                </p>
+<div class="grain"></div>
 
-                <div class="social-links" data-aos="flip-down" data-aos-duration="1000" data-aos-delay="1500">
-                    <a href="https://github.com/Akmal-s"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/akmal-s-/"><i class="fa-brands fa-linkedin"></i></a>
-                </div>
+<!-- ================= NAV ================= -->
+<nav id="site-nav">
+  <div class="nav-inner">
+    <a href="#home" class="logo">Akmal<span class="dot">.</span></a>
 
-                <a href="#projects">
-                    <div class="btn" data-aos="zoom-out-left" data-aos-duration="1000" data-aos-delay="2000">
-                        <button>View Projects</button>
-                    </div>
-                </a>
+    <div class="links" id="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </div>
 
-            </div>
-        </div>
-    </section>
+    <a href="assets/Akmal_S_Resume.pdf" download class="btn btn-ghost nav-cta">Resume</a>
+    <button id="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
 
+<!-- ================= HERO ================= -->
+<section id="home">
+  <div class="hero-glow" aria-hidden="true">
+    <span class="orb orb-a"></span>
+    <span class="orb orb-b"></span>
+    <span class="spotlight" id="spotlight"></span>
+  </div>
+
+  <canvas id="hero-3d" class="hero-canvas" aria-hidden="true"></canvas>
+
+  <div class="hero-inner">
+    <p class="eyebrow reveal">SELECT * FROM analysts WHERE curious = true;<span class="cursor">_</span></p>
+
+    <h1 class="reveal">
+      Akmal S. <br>
+      I turn raw data <br> into <span class="text-red" id="scramble-word">decisions</span> that stick.
+    </h1>
+
+    <p class="hero-sub reveal">
+      Data Analyst working across SQL, Python, Excel, Power BI and Tableau.
+      I build dashboards and reports that give stakeholders a clear next step, not just a chart.
+    </p>
+
+    <div class="hero-actions reveal">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="assets/Akmal_S_Resume.pdf" download class="btn btn-outline"><i class="fa-solid fa-arrow-down"></i> Download Resume</a>
+    </div>
+
+    <div class="hero-social reveal">
+      <a href="https://github.com/Akmal-s" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/akmal-s-/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="mailto:akmal.s.analytics@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+  </div>
+
+  <div class="stat-strip glass reveal">
+    <div class="stat"><span class="stat-num" data-count="365000" data-suffix="+">0</span><span class="stat-label">records analyzed<br>(Kickstarter dataset)</span></div>
+    <div class="stat"><span class="stat-num" data-prefix="$" data-count="3.86" data-decimals="2" data-suffix="B">0</span><span class="stat-label">in funding<br>tracked &amp; visualized</span></div>
+    <div class="stat"><span class="stat-num" data-count="3">0</span><span class="stat-label">analyst internships<br>&amp; client-facing roles</span></div>
+    <div class="stat"><span class="stat-num" data-count="5">0</span><span class="stat-label">core tools,<br>SQL to Tableau</span></div>
+  </div>
+
+  <a href="#about" class="scroll-cue" aria-label="Scroll to About"><span></span></a>
+</section>
+
+<!-- ================= ABOUT ================= -->
 <section id="about">
-    <div class="about-container" data-aos="fade-up" data-aos-duration="1000">
-        <h2 style="color: #6b3e26;">About Me</h2>
-        <div class="about-text">
-            <p data-aos="fade-right" data-aos-delay="200">
-               I'm an aspiring data analyst with a strong passion for transforming complex data into actionable insights that support better decision-making.
-                With a solid foundation in analytics, I’ve developed hands-on experience using tools like SQL, Excel, Power BI, Tableau, and Python to work with data across various business scenarios.
-            </p>
-            <p data-aos="fade-left" data-aos-delay="400">
-                I’ve applied these skills to real-world, industry-level projects that involve end-to-end workflows—from data cleaning and transformation to in-depth exploratory analysis and dashboard creation.
-                These projects helped me uncover patterns in customer behavior, operational trends, and business performance metrics across diverse domains.
-            </p>
-            <p data-aos="fade-right" data-aos-delay="500">
-               What I enjoy most is working with large datasets to uncover trends, clean and organize raw data using advanced Excel functions, and extract insights through exploratory analysis. 
-                I'm especially skilled at creating clear, interactive dashboards using Power BI and Tableau that make data easy to understand and visually engaging.
-            </p>
-            <p data-aos="fade-left" data-aos-delay="600">
-               As I begin my career in data analytics, I'm eager to contribute to a team where data plays a central role in decision-making.
-                I’m also committed to continuously learning and growing in this dynamic field—and always excited to connect with others who share the same passion for data.
-            </p>
-        </div>
+  <div class="section-inner about-grid">
+    <div class="about-media reveal">
+      <div class="photo-frame">
+        <img src="images/profile.jpg" alt="Illustration of Akmal working at a desk with a laptop showing charts, next to books labelled SQL, Power BI and Excel." />
+      </div>
+      <div class="photo-tag">
+        <i class="fa-solid fa-location-dot"></i> Based in India · Open to relocation
+      </div>
     </div>
+
+    <div class="about-copy">
+      <p class="eyebrow reveal">SELECT bio FROM about_me;</p>
+      <h2 class="reveal">Comfortable in the mess before the dashboard is clean.</h2>
+
+      <div class="reveal">
+        <p>
+          I'm a Data Analyst with hands-on experience across SQL, Python, Excel, Power BI and Tableau.
+          My work ranges from cleaning messy source data to shipping dashboards stakeholders actually open every week.
+        </p>
+        <p>
+          Across three internships and client-facing roles, I've analyzed a 365,000-project Kickstarter
+          dataset representing $3.86B in funding, built an automated job-market dashboard with a Python
+          scraping pipeline, and managed large operational datasets while generating the highest individual
+          brokerage on my team at NoBroker.
+        </p>
+        <p>
+          Whether the audience is an engineering team or a business stakeholder, my job is the same:
+          make the insight impossible to misread.
+        </p>
+      </div>
+
+    </div>
+  </div>
 </section>
 
-
+<!-- ================= SKILLS ================= -->
 <section id="skills">
-  <div class="skills-container" data-aos="fade-up" data-aos-duration="1000">
-    <p class="skills-heading">Technical Tools.</p>
-    <div class="skills-cards">
+  <div class="section-inner">
+    <p class="eyebrow reveal center">SELECT tool, category FROM stack;</p>
+    <h2 class="reveal center">Technical Stack</h2>
+    <p class="section-sub reveal center">The tools I reach for daily, from first query to final dashboard.</p>
+
+    <div class="skills-grid reveal">
       <div class="skill-card">
-        <img src="images/python.png" alt="Python" />
-        <span>Python</span>
+        <img src="images/icon-sql.png" alt="SQL" />
+        <h3>SQL</h3>
+        <p>MySQL · complex queries, joins &amp; EDA on large datasets</p>
+        <div class="skill-bar"><span style="--level:92%"></span></div>
       </div>
       <div class="skill-card">
-        <img src="images/sql.png" alt="SQL" />
-        <span>SQL</span>
+        <img src="images/icon-python.png" alt="Python" />
+        <h3>Python</h3>
+        <p>Data cleaning, scraping &amp; automated ETL pipelines</p>
+        <div class="skill-bar"><span style="--level:78%"></span></div>
       </div>
       <div class="skill-card">
-        <img src="images/excel.png" alt="Excel" />
-        <span>Excel</span>
+        <img src="images/icon-excel.png" alt="Excel" />
+        <h3>Excel</h3>
+        <p>Advanced formulas, pivot modeling &amp; reporting</p>
+        <div class="skill-bar"><span style="--level:90%"></span></div>
       </div>
       <div class="skill-card">
-        <img src="images/powerbi.png" alt="Power BI" />
-        <span>Power BI</span>
+        <img src="images/icon-powerbi.png" alt="Power BI" />
+        <h3>Power BI</h3>
+        <p>Interactive dashboards, DAX &amp; KPI reporting</p>
+        <div class="skill-bar"><span style="--level:94%"></span></div>
       </div>
       <div class="skill-card">
-        <img src="images/tableau.png" alt="Tableau" />
-        <span>Tableau</span>
+        <img src="images/icon-tableau.png" alt="Tableau" />
+        <h3>Tableau</h3>
+        <p>Visual storytelling &amp; geographic / trend analysis</p>
+        <div class="skill-bar"><span style="--level:85%"></span></div>
+      </div>
+    </div>
+
+    <div class="tech-stack reveal">
+      <div class="tech-stack-grid">
+        <div class="stack-item" tabindex="0">
+          <i class="fa-solid fa-square-root-variable"></i>
+          <span>NumPy</span>
+        </div>
+        <div class="stack-item" tabindex="0">
+          <i class="fa-solid fa-table"></i>
+          <span>Pandas</span>
+        </div>
+        <div class="stack-item" tabindex="0">
+          <i class="fa-solid fa-chart-area"></i>
+          <span>Seaborn</span>
+        </div>
+        <div class="stack-item" tabindex="0">
+          <i class="fa-solid fa-book-open"></i>
+          <span>Jupyter Notebook</span>
+        </div>
+        <div class="stack-item" tabindex="0">
+          <i class="fa-brands fa-microsoft"></i>
+          <span>Microsoft Fabric</span>
+        </div>
+        <div class="stack-item" tabindex="0">
+          <i class="fa-brands fa-google"></i>
+          <span>Google Sheets</span>
+        </div>
+        <div class="stack-item" tabindex="0">
+          <i class="fa-solid fa-headset"></i>
+          <span>CRM Tooling</span>
+        </div>
+        <div class="stack-item" tabindex="0">
+          <i class="fa-solid fa-chart-simple"></i>
+          <span>Statistics</span>
+        </div>
+        <div class="stack-item" tabindex="0">
+          <i class="fa-solid fa-comments"></i>
+          <span>Data Storytelling</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-
+<!-- ================= PROJECTS ================= -->
 <section id="projects">
-  <div class="projects-container" data-aos="fade-up" data-aos-duration="1000">
-    <h2>Projects</h2>
+  <div class="section-inner">
+    <p class="eyebrow reveal center">SELECT * FROM projects WHERE impact = true;</p>
+    <h2 class="reveal center">Featured Projects</h2>
+    <p class="section-sub reveal center">Seven end-to-end analyses, from raw dataset to decision-ready dashboard.</p>
+
     <div class="projects-grid">
-      
-     <div class="project-card">
-        <img src="images/Kickstarter.png" alt="Kickstarter">
-        <h3>Kickstarter Projects Analysis</h3>
-        <p>Cleaned Kickstarter data in Excel, analyzed trends using SQL, and built an interactive Power BI dashboard to showcase key insights.</p>
-        <a href="https://github.com/Akmal-s/Power-BI-crowdfunding" target="_blank">View on GitHub</a>
-      </div> 
 
-        <div class="project-card">
-        <img src="images/Blinkit.png" alt="Blinkit Dashboard">
-        <h3>Blinkit Sales Analysis</h3>
-        <p>Cleaned data using Advanced Excel and visualized Blinkit’s sales, item performance, and outlet analytics with an interactive Power BI dashboard.</p>
-        <a href="https://github.com/Akmal-s/Power-BI-Blinkit-Project" target="_blank">View on GitHub</a>
-      </div>
+      <article class="project-card reveal">
+        <div class="project-img"><img src="images/kickstarter-powerbi.png" alt="Kickstarter Power BI dashboard showing project categories, funding trends and top backed projects" loading="lazy"></div>
+        <div class="project-body">
+          <span class="tag">Power BI</span>
+          <h3>Kickstarter Campaign Analysis</h3>
+          <p>Analyzed 365K+ crowdfunding campaigns worth $3.86B to surface funding trends, category performance and success drivers.</p>
+          <a href="https://github.com/Akmal-s/Power-BI-crowdfunding" target="_blank" rel="noopener">View on GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+      </article>
 
-                <div class="project-card">
-        <img src="images/Uber_Trip_Analysis.png" alt="Uber TRip Analysis">
-        <h3>Uber Trip Analysis</h3>
-        <p>Processed Uber trip data with SQL, performed EDA in Python, and built an interactive Power BI dashboard to visualize Insights and ride patterns.</p>
-        <a href="https://github.com/Akmal-s/Uber_Trip_analysis" target="_blank">View on GitHub</a>
-      </div>
+      <article class="project-card reveal">
+        <div class="project-img"><img src="images/blinkit-dashboard.png" alt="Blinkit sales dashboard showing outlet performance, fat content breakdown and sales by location" loading="lazy"></div>
+        <div class="project-body">
+          <span class="tag">Power BI</span>
+          <h3>Blinkit Sales Analysis</h3>
+          <p>Interactive dashboard tracking $1.2M in sales across outlet types, tiers and item categories for a quick-commerce business.</p>
+          <a href="https://github.com/Akmal-s/Power-BI-Blinkit-Project" target="_blank" rel="noopener">View on GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+      </article>
 
-      <div class="project-card">
-        <img src="images/us-superstore.png" alt="US Sales Overview">
-        <h3>US Sales Overview</h3>
-        <p>Used Advanced Excel (Power Query, Power Pivot, Pivot Charts) for cleaning and analysis; built an interactive dashboard to show U.S. sales, profit, and shipping trends.</p>
-        <a href="https://github.com/Akmal-s/Excel-Sales-Analytics" target="_blank">View on GitHub</a>
-      </div>
+      <article class="project-card reveal">
+        <div class="project-img"><img src="images/us-superstore-excel.png" alt="US Superstore Excel dashboard showing sales, profit margin and return rate by state" loading="lazy"></div>
+        <div class="project-body">
+          <span class="tag">Excel</span>
+          <h3>US Superstore Sales Overview</h3>
+          <p>Fully interactive Excel dashboard revealing top states, shipping trends and product performance at a glance.</p>
+          <a href="https://github.com/Akmal-s/Excel-Sales-Analytics" target="_blank" rel="noopener">View on GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+      </article>
 
-<div class="project-card">
-        <img src="images/Kickstarter-crowdfunding-tableau.png" alt="Kickstarter">
-        <h3>crowdfunding Analysis</h3>
-        <p>Built an interactive Tableau dashboard with parameters and pivoted data to analyze Kickstarter trends, success rates, and geographic performance.</p>
-        <a href="https://github.com/Akmal-s/Tableau-Kickstarter-Project" target="_blank">View on GitHub</a>
-      </div>
+      <article class="project-card reveal">
+        <div class="project-img"><img src="images/kickstarter-tableau.png" alt="Kickstarter Tableau crowdfunding dashboard cover" loading="lazy"></div>
+        <div class="project-body">
+          <span class="tag">Tableau</span>
+          <h3>Crowdfunding Analysis</h3>
+          <p>Visualized project trends, success rates and geographic distribution across the same Kickstarter dataset in Tableau.</p>
+          <a href="https://github.com/Akmal-s/Tableau-Kickstarter-Project" target="_blank" rel="noopener">View on GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+      </article>
 
-      <div class="project-card">
-        <img src="images/HR-analytics.png" alt="HR-analytics">
-        <h3>HR Analytics</h3>
-        <p>Built an HR Analytics Dashboard in Power BI using DAX, drill-through, and slicers to analyze attrition and employee distribution.</p>
-        <a href="https://github.com/Akmal-s/HR-Analytics-Power-BI-Project" target="_blank">View on GitHub</a>
-      </div>
+      <article class="project-card reveal">
+        <div class="project-img"><img src="images/hr-analytics.png" alt="HR Analytics dashboard showing attrition rate, employee count by department and job role" loading="lazy"></div>
+        <div class="project-body">
+          <span class="tag">Power BI</span>
+          <h3>HR Analytics Dashboard</h3>
+          <p>Tracked attrition across 1,480 employees, surfacing patterns by department, distance and age group for HR decision-making.</p>
+          <a href="https://github.com/Akmal-s/HR-Analytics-Power-BI-Project" target="_blank" rel="noopener">View on GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+      </article>
 
-      <div class="project-card">
-        <img src="images/sales-overview-tableau.png" alt="Sales Dashboard">
-        <h3>us superstore Sales Analysis</h3>
-        <p>Built a Tableau dashboard using LODs, parameters, and calcs to reveal Superstore KPIs, regional trends, and top products.</p>
-        <a href="https://github.com/Akmal-s/Tableau-Super-store-analysis-Project" target="_blank">View on GitHub</a>
-      </div>
+      <article class="project-card reveal">
+        <div class="project-img"><img src="images/superstore-tableau.png" alt="Superstore Tableau dashboard showing sales trend, shipping mode and sales by state" loading="lazy"></div>
+        <div class="project-body">
+          <span class="tag">Tableau</span>
+          <h3>US Superstore Sales</h3>
+          <p>Dynamic dashboard for Superstore USA surfacing $1.92M in sales, regional trends and top-performing products.</p>
+          <a href="https://github.com/Akmal-s/Tableau-Super-store-analysis-Project" target="_blank" rel="noopener">View on GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+      </article>
 
+      <article class="project-card reveal">
+        <div class="project-img"><img src="images/sql-kickstarter.png" alt="SQL analysis dashboard of Kickstarter data showing projects by category, year and location" loading="lazy"></div>
+        <div class="project-body">
+          <span class="tag">SQL</span>
+          <h3>SQL Analysis: Kickstarter</h3>
+          <p>Query-driven analysis uncovering outcome trends, category success rates and geography across a decade of campaigns (2009-2019).</p>
+          <a href="https://github.com/Akmal-s/SQL-Kickstarter-project" target="_blank" rel="noopener">View on GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+      </article>
 
-      <!-- Add more cards here -->
     </div>
   </div>
 </section>
 
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience">
+  <div class="section-inner">
+    <p class="eyebrow reveal center">SELECT role, tools FROM experience ORDER BY date DESC;</p>
+    <h2 class="reveal center">Experience</h2>
+    <p class="section-sub reveal center">Internships and client-facing work that shaped how I approach data.</p>
 
+    <div class="timeline">
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <h3>Relationship Manager</h3>
+            <span class="tl-date">Sep 2025 - May 2026</span>
+          </div>
+          <p class="tl-org">NoBroker <span class="tl-tools">· Google Sheets, CRM</span></p>
+          <ul>
+            <li>Managed end-to-end client relationships for property owners and seekers, coordinating viewings and supporting deal closures.</li>
+            <li>Maintained large Google Sheets datasets tracking listings, schedules and owner details for the team.</li>
+            <li>Generated ₹50,000 in brokerage, the highest individual amount on the team.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <h3>Data Analyst Intern</h3>
+            <span class="tl-date">May 2025 - Aug 2025</span>
+          </div>
+          <p class="tl-org">Unified Mentor (Remote) <span class="tl-tools">· Excel, SQL, Power BI, Python</span></p>
+          <ul>
+            <li>Delivered insights across 4 end-to-end analytics projects covering stock trends, job market patterns, ride demand and cybersecurity incidents.</li>
+            <li>Built an automated Power BI dashboard for Data Analyst job postings with real-time skill demand and salary trends.</li>
+            <li>Owned the full workflow (cleaning, EDA and BI reporting) from raw data to final dashboard.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <h3>Data Analyst Intern</h3>
+            <span class="tl-date">Dec 2024 - Mar 2025</span>
+          </div>
+          <p class="tl-org">AI Variant (Remote) <span class="tl-tools">· Excel, SQL, Power BI, Tableau</span></p>
+          <ul>
+            <li>Analyzed 365,000+ Kickstarter projects representing $3.86B in funding to surface trends and success patterns.</li>
+            <li>Built dynamic Power BI and Tableau dashboards visualizing campaign trends by category, geography and status.</li>
+            <li>Prepared executive-level reports translating findings into strategic recommendations.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= CERTIFICATIONS ================= -->
 <section id="certifications">
-  <div class="section-container" data-aos="fade-up" data-aos-duration="1000">
-    <h2>Certifications</h2>
-    <div class="certifications-grid">
-    
-      <div class="certificate-card">
-        <div class="image-wrapper">
-        <img src="images/Da-certificate.png" alt="Da-Certificate">
-        </div>
-        <h3>ExcelR Data Analytics-certificate</h3>
-        <a href="https://drive.google.com/file/d/1l8SHwAGx4hjLYRmbI0oWxCa_uE2Wra20/view?usp=drive_link" target="_blank">View Certificate</a>
-      </div>
+  <div class="section-inner">
+    <p class="eyebrow reveal center">SELECT * FROM certifications;</p>
+    <h2 class="reveal center">Certifications</h2>
 
-      
-      <div class="certificate-card">
-        <div class="image-wrapper">
-        <img src="images/akmal-s-ai-variant-internship.png" alt="internship certificate">
+    <div class="cert-grid reveal">
+      <a class="cert-card" href="https://drive.google.com/file/d/1l8SHwAGx4hjLYRmbI0oWxCa_uE2Wra20/view?usp=drive_link" target="_blank" rel="noopener">
+        <div class="cert-mat">
+          <img src="images/cert-excelr.png" alt="ExcelR Data Analytics Certification">
+          <div class="cert-overlay"><span>View Certificate <i class="fa-solid fa-arrow-up-right-from-square"></i></span></div>
         </div>
-        <h3>AI Variant Data Analytics Internship-certificate</h3>
-        <a href="https://drive.google.com/file/d/1qBymNat0tou174ctbPE2J160Sq5xBvu1/view?usp=drive_link" target="_blank">View Certificate</a>
-      </div>
+        <h3>Data Analyst Certification</h3>
+        <p>ExcelR · Feb 2025</p>
+      </a>
 
-      <div class="certificate-card">
-        <div class="image-wrapper">
-        <img src="images/Wadhwani-Employability-skills-certificate.png" alt="Job Ready-certificate">
+      <a class="cert-card" href="https://drive.google.com/file/d/1qBymNat0tou174ctbPE2J160Sq5xBvu1/view?usp=drive_link" target="_blank" rel="noopener">
+        <div class="cert-mat">
+          <img src="images/cert-aivariant.png" alt="AI Variant Data Analytics Internship Certificate">
+          <div class="cert-overlay"><span>View Certificate <i class="fa-solid fa-arrow-up-right-from-square"></i></span></div>
         </div>
-        <h3>Job Ready Certificate by Wadhwani Foundation</h3>
-        <a href="https://web.certificate.wfglobal.org/en/certificate?certificateId=67406da9a120754b3e9fa062" target="_blank">View Certificate</a>
-      </div>
+        <h3>Internship Completion, Data Analytics</h3>
+        <p>AI Variant · Mar 2025</p>
+      </a>
 
-      <div class="certificate-card">
-        <div class="image-wrapper">
-        <img src="images/PowerBI-Certificate.png" alt="PowerBi-certificate">
+      <a class="cert-card" href="https://drive.google.com/file/d/1N34Ip-gTd2D0OC6SvhI4DKaDhv_xgUw9/view?usp=drive_link" target="_blank" rel="noopener">
+        <div class="cert-mat">
+          <img src="images/cert-wadhwani.png" alt="Wadhwani Foundation Employability Skills Certificate">
+          <div class="cert-overlay"><span>View Certificate <i class="fa-solid fa-arrow-up-right-from-square"></i></span></div>
         </div>
-        <h3>Simplilearn PowerBi-certificate</h3>
-        <a href="https://simpli-web.app.link/e/ADgivrIGyUb" target="_blank">View Certificate</a>
+        <h3>Employability Skills, Job Ready</h3>
+        <p>Wadhwani Foundation · Nov 2024</p>
+      </a>
+
+      <a class="cert-card" href="https://drive.google.com/file/d/1A4d182DXRddkGAgn_J-xtN3BOsVgLZDl/view?usp=sharing" target="_blank" rel="noopener">
+        <div class="cert-mat">
+          <img src="images/cert-powerbi.png" alt="Simplilearn Power BI for Beginners Certificate">
+          <div class="cert-overlay"><span>View Certificate <i class="fa-solid fa-arrow-up-right-from-square"></i></span></div>
+        </div>
+        <h3>Power BI for Beginners</h3>
+        <p>Simplilearn SkillUp · Apr 2025</p>
+      </a>
+    </div>
+
+    <div class="education-note reveal">
+      <i class="fa-solid fa-graduation-cap"></i>
+      <div>
+        <h4>B.Sc. Mathematics &amp; Physics</h4>
+        <p>Bangalore North University · Graduated 2024 · CGPA 8.4/10</p>
       </div>
-      
     </div>
   </div>
 </section>
 
-
+<!-- ================= CONTACT ================= -->
 <section id="contact">
-  <div class="contact-container" data-aos="fade-up" data-aos-duration="1000">
-    <h2>Contact</h2>
-   
+  <div class="section-inner contact-inner">
+    <p class="eyebrow reveal center">INSERT INTO inbox (message) VALUES (?);</p>
+    <h2 class="reveal center">Let's talk data.</h2>
+    <p class="section-sub reveal center">Open to Data Analyst roles and freelance dashboard work. Based in India, open to relocation.</p>
 
-    <!-- Contact Info Cards -->
-    <div class="contact-cards">
-      <div class="contact-card">
-        <i class="fas fa-map-marker-alt"></i>
-        <div>
-          <h4>Location:</h4>
-          <p>India (Open for Relocation)</p>
-        </div>
-      </div>
-
-   <div class="contact-card">
-  <i class="fas fa-envelope"></i>
-  <div>
-    <h4>Email:</h4>
-    <p><a href="mailto:akmal.s.analytics@gmail.com">akmal.s.analytics@gmail.com</a></p>
-  </div>
-</div>
-
-
-      <div class="contact-card">
-        <i class="fab fa-linkedin"></i>
-        <div>
-          <h4>LinkedIn:</h4>
-          <p><a href="https://www.linkedin.com/in/akmal-s-/" target="_blank">Let's connect!</a></p>
-        </div>
-      </div>
-
-      <div class="contact-card">
-        <i class="fab fa-github"></i>
-        <div>
-          <h4>GitHub:</h4>
-          <p><a href="https://github.com/Akmal-s" target="_blank">Explore Projects</a></p>
-        </div>
-      </div>
+    <div class="contact-grid reveal">
+      <a href="mailto:akmal.s.analytics@gmail.com" class="contact-card">
+        <i class="fa-solid fa-envelope"></i>
+        <div><h4>Email</h4><p>akmal.s.analytics@gmail.com</p></div>
+      </a>
+      <a href="https://www.linkedin.com/in/akmal-s-/" target="_blank" rel="noopener" class="contact-card">
+        <i class="fa-brands fa-linkedin"></i>
+        <div><h4>LinkedIn</h4><p>Let's connect</p></div>
+      </a>
+      <a href="https://github.com/Akmal-s" target="_blank" rel="noopener" class="contact-card">
+        <i class="fa-brands fa-github"></i>
+        <div><h4>GitHub</h4><p>Explore all projects</p></div>
+      </a>
     </div>
   </div>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="#home" class="logo footer-logo">Akmal<span class="dot">.</span></a>
+      <nav class="footer-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#home" class="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
+    </div>
+    <p>&copy; <span id="year"></span> Akmal S. Built from scratch, styled with real project data.</p>
+  </footer>
 </section>
 
+<!-- mobile menu backdrop -->
+<div id="menu-backdrop"></div>
 
-
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            offset: 100,
-            duration: 1000,
-            once: true
-        });
-        function hamburg() {
-            document.querySelector(".dropdown").style.transform = "translateY(0px)";
-        }
-        function cancel() {
-            document.querySelector(".dropdown").style.transform = "translateY(-500px)";
-        }
-    </script>
-
-    <script>
-  // Scroll to top on page load
-  window.onload = function () {
-    window.scrollTo(0, 0);
-  };
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
